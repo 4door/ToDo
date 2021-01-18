@@ -28,7 +28,7 @@
 </dialog>
 <button id="show">タスク作成</button>
 <!-- flashメッセージを表示 -->
-<% flash.each do |msg| %>
+<% flash.each do |type, msg| %>
 <p><%= msg %></p>
 <% end %>
 <table>
@@ -37,8 +37,9 @@
       <th>状態</th>
       <th>期限</th>
       <th>タスク</th>
-      <th></th>
-      <th></th>
+      <th class="icon"></th>
+      <th class="icon"></th>
+      <th class="icon"></th>
     </tr>
   </thead>
   <tbody>
@@ -47,15 +48,29 @@
       <td><%= t.state %></td>
       <td><%= t.limit_date %></td>
       <td><%= t.task %></td>
-      <td>
-        <!-- 次のタスク詳細取得画面へのリンク -->
-        <a href="/tasks/<%= t.id %>"><i class="fa fa-check-circle-o "></i></a>
+      <td class="icon">
+        <% if t.state != 'done' %>
+        <%= form_for(t, url: "/tasks/#{t.id}", html: { method: 'PUT' }) do |f| %>
+        <input type="hidden" name="task" value="<%= t.task %>">
+        <input type="hidden" name="state" value="done">
+        <input type="hidden" name="date" value="<%= t.limit_date %>">
+        <button type="submit">
+          <i class="fa fa-check-circle-o "></i>
+        </button>
+        <% end %>
+        <% end %>
       </td>
-      <td>
+      <td class="icon">
+        <!-- 次のタスク詳細取得画面へのリンク -->
+        <a href="/tasks/<%= t.id %>"><i class="fa fa-pencil-square-o "></i> </a>
+      </td>
+      <td class="icon">
         <form method="POST" action="/tasks/<%= t.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button type="submit"><i class="fa fa-trash-o "></i> </button>
+          <button type="submit">
+            <i class="fa fa-trash-o "></i>
+          </button>
         </form>
       </td>
     </tr>

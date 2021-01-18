@@ -17,9 +17,7 @@ class TasksController < ApplicationController
       @status = ['todo', 'doing', 'done']
     end
     def update
-      id   = params[:id]
-      task = Task.find(1)
-  
+      task = Task.find(params[:id])  
       task.task         = params[:task]
       task.state        = params[:state]
       task.limit_date   = params[:limit_date]
