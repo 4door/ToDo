@@ -19,9 +19,8 @@
   <p>
     <button type="submit">create</button>
   </p>
-</div>
 </form>
-
+<button id="show">タスク作成</button>
 <!-- flashメッセージを表示 -->
 <% flash.each do |msg| %>
 <p><%= msg %></p>
@@ -44,13 +43,13 @@
       <td><%= t.task %></td>
       <td>
         <!-- 次のタスク詳細取得画面へのリンク -->
-        <a href="/tasks/<%= t.id %>">edit</a>
+        <a href="/tasks/<%= t.id %>"><i class="fa fa-check-circle-o "></i></a>
       </td>
       <td>
         <form method="POST" action="/tasks/<%= t.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button type="submit">delete</button>
+          <button type="submit"><i class="fa fa-trash-o "></i> </button>
         </form>
       </td>
     </tr>
