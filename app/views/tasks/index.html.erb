@@ -80,7 +80,8 @@
         <form method="POST" action="/tasks/<%= t.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button type="submit" class="clear-decoration">
+          <button type="submit" class="clear-decoration"
+           onclick="return confirm('タスク「<%= t.task %>」を削除します。よろしいですか？')">
             <i class="fa fa-trash-o fa-lg "></i>
           </button>
         </form>
