@@ -27,6 +27,7 @@
   <button id="close">モーダルダイアログを閉じる</button>
 </dialog>
 <button id="show">タスク作成</button>
+<p></p>
 <!-- flashメッセージを表示 -->
 <% flash.each do |type, msg| %>
 <p><%= msg %></p>
@@ -54,22 +55,22 @@
         <input type="hidden" name="task" value="<%= t.task %>">
         <input type="hidden" name="state" value="done">
         <input type="hidden" name="date" value="<%= t.limit_date %>">
-        <button type="submit">
-          <i class="fa fa-check-circle-o "></i>
+        <button type="submit" class="clear-decoration">
+          <i class="fa fa-check-circle-o fa-2 "></i>
         </button>
         <% end %>
         <% end %>
       </td>
       <td class="icon">
         <!-- 次のタスク詳細取得画面へのリンク -->
-        <a href="/tasks/<%= t.id %>"><i class="fa fa-pencil-square-o "></i> </a>
+        <a href="/tasks/<%= t.id %>"><i class="fa fa-pencil-square-o fa-2 "></i> </a>
       </td>
       <td class="icon">
         <form method="POST" action="/tasks/<%= t.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button type="submit">
-            <i class="fa fa-trash-o "></i>
+          <button type="submit" class="clear-decoration">
+            <i class="fa fa-trash-o fa-2 "></i>
           </button>
         </form>
       </td>
@@ -81,6 +82,11 @@
 .site-header{
     background: #800000;
     color: #FFF;
+}
+.clear-decoration {
+    border: none;  /* 枠線を消す */
+    outline: none; /* クリックしたときに表示される枠線を消す */
+    background: transparent; /* 背景の灰色を消す */
 }
 </style>
 <script>
