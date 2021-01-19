@@ -6,13 +6,17 @@
         <ul>
     </nav>
 </header>
-<dialog style="background-color: #fdffd7;">
+<dialog style="background-color: #fdffd7;border:none;">
+<div style="margin: -20px -16px 0;
+background-color: coral;
+color: white;">
   <button id="close"
   class="clear-decoration"
-  style="display: block;margin: 0 0 0 auto;">
+  style="display: block;margin: 4px 0 0 auto;">
     <i class="fa fa-close fa-lg "></i>
   </button>
-  <p style="margin-top: -15px;">新規作成</p>
+  <p style="margin-top: -15px;margin-left: 5px;">新規作成</p>
+  </div>
   <form method="POST" action="/tasks">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div>
@@ -33,8 +37,8 @@
     </div>
     <p>
       <button
-      type="submit"
-      style="display: block;margin: 0 0 0 auto;">
+      class="insert"
+      type="submit">
         作成
       </button>
     </p>
@@ -140,6 +144,20 @@ a.show:hover {
 a.show:hover:before {
   border-top: 2px solid #e8a48b;
   border-right: 2px solid #e8a48b;
+}
+.insert{
+    font-size: 1em;
+    padding: 10px 30px;
+    color: #fff;
+    background: #e8a48b;
+    border: 1px solid #e8a48b;
+    border-radius: 5px;
+    display: block;
+    margin: 0 0 0 auto;
+}
+button.insert:hover {
+  background: #fff;
+  color: #e8a48b;
 }
 </style>
 <script>
