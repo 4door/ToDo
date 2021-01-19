@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
     def index
       @tasks  = Task.order('limit_date').all
-      @status = ['todo', 'doing', 'done']  
+      @status = ['新規', '対応中', '完了']  
     end
     def store
       task = Task.new
@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     def show
       id      = params[:id]
       @task   = Task.find(id)
-      @status = ['todo', 'doing', 'done']
+      @status = ['新規', '対応中', '完了']  
     end
     def update
       task = Task.find(params[:id])  
