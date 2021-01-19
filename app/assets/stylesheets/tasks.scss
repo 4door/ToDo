@@ -1,28 +1,57 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-table{
-    border-collapse: collapse;
-    border-spacing: 0;
-    table-layout: fixed;
-    width: 490px;
+table {
+border-collapse: collapse;
+margin: 0 auto;
+padding: 0;
+width: 800px;
+margin-left: auto;
+margin-right: auto;
+box-shadow: 0 0 15px -6px #00000073;
 }
 
-table tr:last-child{
-    border-bottom:solid 1px #ddd;
+table tr {
+background-color: #fff;
 }
 
-table th{
-    text-align: center;
-    padding: 7px 0;
-    border-right:solid 1px #ddd;
-    border-left:solid 1px #ddd;
-    width: 155px;
+table th,
+table td {
+padding: 20px 0;
+border-bottom: 1px solid #eee;
 }
+
+table  th {
+width: 20%;
+padding: 10px 0;
+font-size: 14px;
+padding: 15px;
+background-color: #aaaaaa;
+color:#fff;
+}
+
+table tr{
+text-align: center;
+width: 20%;
+padding: 20px 0;
+background-color: #fff;
+color:#3a3a3a;
+}
+
+table tr:hover{
+background-color: #feffd4;
+}
+
 .icon{
-    width: 50px;
-    text-align: center;
+width: 20px;
 }
-table th:nth-child(1){
-    background-color:#dddddd;  
+  
+.site-header{
+    background: #800000;
+    color: #FFF;
+}
+.clear-decoration {
+    border: none;  /* 枠線を消す */
+    outline: none; /* クリックしたときに表示される枠線を消す */
+    background: transparent; /* 背景の灰色を消す */
 }

@@ -1,3 +1,6 @@
+<header class="site-header">
+  <h1>&nbsp;Task List</h1>
+</header>
 <form method="POST" action="/tasks/<%= @task.id %>">
   <input type="hidden" name="_method" value="PUT">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
