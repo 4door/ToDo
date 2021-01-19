@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     def index
-      @tasks  = Task.order('limit_date').all
+      @tasks  = Task.order('limit_date').limit(100)
       @status = ['新規', '対応中', '完了']  
     end
     def store

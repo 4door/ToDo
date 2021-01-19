@@ -1,7 +1,12 @@
 <header class="site-header">
-  <h1>&nbsp;Task List</h1>
+    <nav>
+        <a href="/tasks" class="site-title">Task List</a>
+        <ul>
+            <li><a href="https://4door.netlify.app/#/">Portfolio</a></li>
+        <ul>
+    </nav>
 </header>
-<dialog>
+<dialog style="background-color: #fdffd7;">
   <button id="close"
   class="clear-decoration"
   style="display: block;margin: 0 0 0 auto;">
@@ -11,7 +16,7 @@
   <form method="POST" action="/tasks">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div>
-      <label for="task">タイトル</label>
+      <label for="task">タスク</label>
       <input id="task" name="task" type="text" required>
     </div>
     <div>
@@ -61,14 +66,14 @@
       <td><%= t.limit_date %></td>
       <td><%= t.task %></td>
       <td class="icon">
-        <% if t.state != 'done' %>
+        <% if t.state != '完了' %>
         <%= form_for(t, url: "/tasks/#{t.id}", html: { method: 'PUT' }) do |f| %>
-        <input type="hidden" name="task" value="<%= t.task %>">
-        <input type="hidden" name="state" value="done">
-        <input type="hidden" name="date" value="<%= t.limit_date %>">
-        <button type="submit" class="clear-decoration">
-          <i class="fa fa-check-circle-o fa-lg "></i>
-        </button>
+          <input type="hidden" name="task" value="<%= t.task %>">
+          <input type="hidden" name="state" value="完了">
+          <input type="hidden" name="limit_date" value="<%= t.limit_date %>">
+          <button type="submit" class="clear-decoration">
+            <i class="fa fa-check-circle-o fa-lg "></i>
+          </button>
         <% end %>
         <% end %>
       </td>

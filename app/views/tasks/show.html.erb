@@ -1,11 +1,16 @@
 <header class="site-header">
-  <h1>&nbsp;Task List</h1>
+    <nav>
+        <a href="/tasks" class="site-title">Task List</a>
+        <ul>
+            <li><a href="https://4door.netlify.app/#/">Portfolio</a></li>
+        <ul>
+    </nav>
 </header>
 <form method="POST" action="/tasks/<%= @task.id %>">
   <input type="hidden" name="_method" value="PUT">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div>
-    <label for="task">タイトル</label>
+    <label for="task">タスク</label>
     <input value="<%= @task.task %>" id="task" name="task" type="text" required>
   </div>
   <div>
@@ -21,6 +26,20 @@
     <input value="<%= @task.limit_date %>" type="date" name="limit_date" required>
   </div>
   <p>
-    <button type="submit">update</button>
+    <button href="/tasks" class="back">戻る</button>
+    <button type="submit" class="update">更新</button>
   </p>
 </form>
+<style>
+div{
+  width: 600px;
+  margin: 0 auto;
+}
+p{
+  width: 600px;
+  text-align: center;
+}
+.back{
+  
+}
+</style>
