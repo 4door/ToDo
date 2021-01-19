@@ -1,17 +1,26 @@
 <header class="site-header">
-  <h1>&nbsp;Task List</h1>
+    <nav>
+        <a href="/tasks" class="site-title">Task List</a>
+        <ul>
+            <li><a href="https://4door.netlify.app/#/">Portfolio</a></li>
+        <ul>
+    </nav>
 </header>
-<dialog>
+<dialog style="border:none;">
+<div style="margin: -20px -16px 0;
+background-color: #e8a48b;
+color: white;">
   <button id="close"
   class="clear-decoration"
-  style="display: block;margin: 0 0 0 auto;">
+  style="display: block;margin: 4px 0 0 auto;">
     <i class="fa fa-close fa-lg "></i>
   </button>
-  <p style="margin-top: -15px;">新規作成</p>
+  <p style="margin-top: -15px;margin-left: 5px;">新規作成</p>
+  </div>
   <form method="POST" action="/tasks">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <div>
-      <label for="task">タイトル</label>
+      <label for="task">タスク</label>
       <input id="task" name="task" type="text" required>
     </div>
     <div>
@@ -28,8 +37,8 @@
     </div>
     <p>
       <button
-      type="submit"
-      style="display: block;margin: 0 0 0 auto;">
+      class="insert"
+      type="submit">
         作成
       </button>
     </p>
@@ -61,14 +70,14 @@
       <td><%= t.limit_date %></td>
       <td><%= t.task %></td>
       <td class="icon">
-        <% if t.state != 'done' %>
+        <% if t.state != '完了' %>
         <%= form_for(t, url: "/tasks/#{t.id}", html: { method: 'PUT' }) do |f| %>
-        <input type="hidden" name="task" value="<%= t.task %>">
-        <input type="hidden" name="state" value="done">
-        <input type="hidden" name="date" value="<%= t.limit_date %>">
-        <button type="submit" class="clear-decoration">
-          <i class="fa fa-check-circle-o fa-lg "></i>
-        </button>
+          <input type="hidden" name="task" value="<%= t.task %>">
+          <input type="hidden" name="state" value="完了">
+          <input type="hidden" name="limit_date" value="<%= t.limit_date %>">
+          <button type="submit" class="clear-decoration">
+            <i class="fa fa-check-circle-o fa-lg "></i>
+          </button>
         <% end %>
         <% end %>
       </td>
@@ -80,7 +89,8 @@
         <form method="POST" action="/tasks/<%= t.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button type="submit" class="clear-decoration">
+          <button type="submit" class="clear-decoration"
+           onclick="return confirm('タスク「<%= t.task %>」を削除します。よろしいですか？')">
             <i class="fa fa-trash-o fa-lg "></i>
           </button>
         </form>
@@ -134,6 +144,20 @@ a.show:hover {
 a.show:hover:before {
   border-top: 2px solid #e8a48b;
   border-right: 2px solid #e8a48b;
+}
+.insert{
+    font-size: 1em;
+    padding: 10px 30px;
+    color: #fff;
+    background: #e8a48b;
+    border: 1px solid #e8a48b;
+    border-radius: 5px;
+    display: block;
+    margin: 0 0 0 auto;
+}
+button.insert:hover {
+  background: #fff;
+  color: #e8a48b;
 }
 </style>
 <script>

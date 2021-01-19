@@ -1,11 +1,16 @@
 <header class="site-header">
-  <h1>&nbsp;Task List</h1>
+    <nav>
+        <a href="/tasks" class="site-title">Task List</a>
+        <ul>
+            <li><a href="https://4door.netlify.app/#/">Portfolio</a></li>
+        <ul>
+    </nav>
 </header>
 <form method="POST" action="/tasks/<%= @task.id %>">
   <input type="hidden" name="_method" value="PUT">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div>
-    <label for="task">タイトル</label>
+    <label for="task">タスク</label>
     <input value="<%= @task.task %>" id="task" name="task" type="text" required>
   </div>
   <div>
@@ -21,6 +26,42 @@
     <input value="<%= @task.limit_date %>" type="date" name="limit_date" required>
   </div>
   <p>
-    <button type="submit">update</button>
+    <a href="/tasks" class="back">戻る</a>
+    <button type="submit" class="update">更新</button>
   </p>
 </form>
+<style>
+div{
+  width: 600px;
+  margin: 0 auto;
+}
+p{
+  width: 600px;
+  text-align: center;
+}
+.back{
+  font-size: 1em;
+  padding: 10px 30px;
+  color: #fff;
+  background: #a9abae;
+  border: 1px solid #a9abae;
+  border-radius: 5px;
+  text-decoration: none;
+}
+a.back:hover {
+  background: #fff;
+  color: #a9abae;
+}
+.update{
+  font-size: 1em;
+  padding: 10px 30px;
+  color: #fff;
+  background: #e8a48b;
+  border: 1px solid #e8a48b;
+  border-radius: 5px;
+}
+button.update:hover {
+  background: #fff;
+  color: #e8a48b;
+}
+</style>

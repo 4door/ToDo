@@ -48,10 +48,34 @@ width: 20px;
   
 .site-header{
     background: #800000;
+}
+.site-title {
+    margin-left: 20px;
+    font-size: 30px;
+    text-decoration: none; 
     color: #FFF;
+}
+nav ul { 
+    list-style-type: none;
+    margin: 2% 2% auto 0;
+    padding-left: 0;
+    text-align: right;
+    max-width: 100%;
+}
+nav ul li { 
+    display: inline-block; 
+}
+nav ul li a {
+    text-decoration: none; 
+    color: #a9abae;
 }
 .clear-decoration {
     border: none;  /* 枠線を消す */
     outline: none; /* クリックしたときに表示される枠線を消す */
     background: transparent; /* 背景の灰色を消す */
+}
+label {
+    margin-right: 10px;
+    width:100px;
+    float: left;
 }
