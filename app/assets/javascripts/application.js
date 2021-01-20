@@ -14,3 +14,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require serviceworker-companion
+
+// safari起動させないための記述
+$(function(){
+    $('a').click(function(){
+      location.href = $(this).attr('href');
+      return false;
+    });
+  });

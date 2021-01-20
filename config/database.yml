@@ -19,8 +19,8 @@ test:
   # database: db/test.sqlite3 変更
   database: postgres
 
-# Herokuデプロイ時に再度見直す
 production:
   <<: *default
   # database: db/production.sqlite3 変更
-  database: postgres
+  adapter: pg
+  database: db/production.pg
