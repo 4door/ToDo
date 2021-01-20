@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+<link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
+<link rel="apple-touch-icon" href="<%=image_path("icon.png")%>" />
     <title>ToDo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
@@ -9,7 +12,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <link rel="manifest" href="/manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes"></head>
 
   <body>
     <nav class="site-header">
@@ -18,7 +22,9 @@
       <ul>
         <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       </ul>
-      <% else %>      
+      <% else %>    
+      
+      <a href="/tasks" class="site-title">Task List</a>  
       <ul>
         <%= link_to 'サインアップ', new_user_registration_path %>
         <%= link_to 'ログイン', new_user_session_path %>
