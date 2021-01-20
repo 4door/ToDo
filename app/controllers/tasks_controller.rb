@@ -1,15 +1,16 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   def index
-    @tasks  = Task.order('limit_date').limit(100)
+    @tasks  = current_user.tasks
     @status = ['新規', '対応中', '完了']  
   end
   def store
     task = Task.new
-    task.task       = params[:task]
-    task.state      = params[:state]
-    task.limit_date = params[:limit_date]
+    task.task         = params[:task]
+    task.state        = params[:state]
+    task.limit_date   = params[:limit_date]
     task.description  = params[:description]
+    task.user_id      = current_user.id
     task.save
     redirect_to '/tasks', notice: 'タスクを作成しました。'
   end
