@@ -12,6 +12,23 @@
   </head>
 
   <body>
+    <nav class="site-header">
+      <a href="/tasks" class="site-title"><%= current_user.username %>さんのTask List</a>
+      <ul>
+      <% if user_signed_in? %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'サインアップ', new_user_registration_path %>
+        <%= link_to 'ログイン', new_user_session_path %>
+      <% end %>
+      <% if user_signed_in? %>
+      username : <%= current_user.username %>さん
+      </ul>
+      <ul>
+      <% end %>
+          <li><a href="https://4door.netlify.app/#/">Portfolio</a></li>
+      </ul>
+    </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
