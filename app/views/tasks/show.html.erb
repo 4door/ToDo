@@ -2,10 +2,15 @@
     <nav>
         <a href="/tasks" class="site-title">Task List</a>
         <ul>
-            <li><a href="https://4door.netlify.app/#/">Portfolio</a></li>
+            <li><a href="https://4door.netlify.app/#/"><i class="fa fa-sign-out fa-lg "></i> Portfolio</a></li>
         <ul>
     </nav>
 </header>
+<p
+style="background-color: #feffd4;
+width: 300px;
+margin: 0 auto;">
+タスクの編集</p>
 <form method="POST" action="/tasks/<%= @task.id %>">
   <input type="hidden" name="_method" value="PUT">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -32,11 +37,10 @@
 </form>
 <style>
 div{
-  width: 600px;
+  width: 300px;
   margin: 0 auto;
 }
 p{
-  width: 600px;
   text-align: center;
 }
 .back{
