@@ -24,3 +24,4 @@ production:
   # database: db/production.sqlite3 変更
   adapter: pg
   database: db/production.pg
+  url: <%= ENV['DATABASE_URL'] %>
