@@ -86,7 +86,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    duktape (2.3.0.0)
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.14.2-x64-mingw32)
@@ -219,7 +218,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  duktape
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails
