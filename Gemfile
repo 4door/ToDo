@@ -11,6 +11,7 @@ gem 'pg'
 gem 'serviceworker-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'bootstrap', '~> 4.1.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
