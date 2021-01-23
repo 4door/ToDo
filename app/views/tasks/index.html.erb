@@ -21,14 +21,14 @@ color: white;">
       </div>
 
       <div class="input-field col s6">
-        <%= f.label '説明' %>
-        <%= f.text_field :description %>
-      </div>
-
-      <div class="input-field col s6">
        <%= f.label '期日' %>
        <%= f.datetime_field :limit_date, class: "datepicker", :required => true %>
      </div>
+
+      <div class="input-field col s6">
+        <%= f.label '説明' %>
+        <%= f.text_field :description %>
+      </div>
      <p>
       <%= f.submit "作成", class: "insert" %>
      </p>
@@ -56,14 +56,12 @@ color: white;">
       <td><%= t.limit_date %></td>
       <td><%= t.task %></td>
       <td class="icon">
-        <% if t.state != '完了' %>
+        <% if t.state != '完了' %>    
         <%= form_for(t, url: "/tasks/#{t.id}", html: { method: 'PUT' }) do |f| %>
-          <input type="hidden" name="task" value="<%= t.task %>">
-          <input type="hidden" name="state" value="完了">
-          <input type="hidden" name="limit_date" value="<%= t.limit_date %>">
-          <button type="submit" class="clear-decoration">
+        <input type="hidden" name="task[state]" value="完了">
+        <button type="submit"  class="clear-decoration">
             <i class="fa fa-check-circle-o fa-lg "></i>
-          </button>
+        </button>
         <% end %>
         <% end %>
       </td>
@@ -141,7 +139,7 @@ a.show:hover:before {
     display: block;
     margin: 0 0 0 auto;
 }
-button.insert:hover {
+.insert:hover {
   background: #fff;
   color: #e8a48b;
 }

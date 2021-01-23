@@ -3,34 +3,31 @@ style="background-color: #feffd4;
 width: 300px;
 margin: 0 auto;">
 タスクの編集</p>
-<form method="POST" action="/tasks/<%= @task.id %>">
-  <input type="hidden" name="_method" value="PUT">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div>
-    <label for="task">タスク</label>
-    <input value="<%= @task.task %>" id="task" name="task" type="text" required>
-  </div>
-  <div>
-    <label>ステータス</label>
-    <select name="state">
-      <% @status.each_with_index do |s,i| %>
-      <option value="<%= s %>"><%= s %></option>
-      <% end %>
-    </select>
-  </div>
-  <div>
-    <label>期日</label>
-    <input value="<%= @task.limit_date %>" type="date" name="limit_date" required>
-  </div>
-  <div>
-    <label for="description">説明</label>
-    <input value="<%= @task.description %>" name="description" type="text">
-  </div>
-  <p>
-    <a href="/tasks" class="back">戻る</a>
-    <button type="submit" class="update">更新</button>
-  </p>
-</form>
+  <%= form_for(@task) do |f| %>
+      <div class="input-field col s6">
+        <%= f.label 'タスク' %>
+        <%= f.text_field :task, :required => true %>
+      </div>
+
+      <div class="input-field col s6">
+        <%= f.label 'ステータス' %>
+        <%= f.select(:state, @status) %>
+      </div>
+
+      <div class="input-field col s6">
+       <%= f.label '期日' %>
+       <%= f.datetime_field :limit_date, class: "datepicker", :required => true %>
+     </div>
+
+      <div class="input-field col s6">
+        <%= f.label '説明' %>
+        <%= f.text_field :description %>
+      </div>
+     <p>
+      <a href="/tasks" class="back">TOPへ戻る</a>
+      <%= f.submit "更新", class: "update" %>
+     </p>
+  <% end %>
 <style>
 div{
   width: 300px;
@@ -41,14 +38,14 @@ p{
 }
 .back{
   font-size: 1em;
-  padding: 10px 30px;
+  padding: 13px 30px;
   color: #fff;
   background: #a9abae;
   border: 1px solid #a9abae;
   border-radius: 5px;
   text-decoration: none;
 }
-a.back:hover {
+.back:hover {
   background: #fff;
   color: #a9abae;
 }
@@ -60,7 +57,7 @@ a.back:hover {
   border: 1px solid #e8a48b;
   border-radius: 5px;
 }
-button.update:hover {
+.update:hover {
   background: #fff;
   color: #e8a48b;
 }
