@@ -8225,3 +8225,848 @@ ActionView::Template::Error (First argument in form cannot contain nil or be emp
   
 app/views/tasks/index.html.erb:50:in `_app_views_tasks_index_html_erb__473253419_36220'
 Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:37:54 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 19:38:45 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:59
+  Rendered tasks/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 46ms (Views: 40.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 19:38:45 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:38:47 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 19:46:32 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@task) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :tssk, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__473253419_36840'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:46:35 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 19:46:57 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendered tasks/index.html.erb within layouts/application (15.4ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Task::ActiveRecord_AssociationRelation:0x000000000e590278>
+Did you mean?  to_ary
+               to_set):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@tasks) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :tssk, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__473253419_37360'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:46:59 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 19:47:27 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendered tasks/index.html.erb within layouts/application (13.5ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Task::ActiveRecord_AssociationRelation:0x000000000e618d80>
+Did you mean?  to_ary
+               to_set):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@tasks) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :task, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__473253419_37900'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:47:29 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 19:51:35 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@task) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :task, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__473253419_38420'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:51:37 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 19:54:05 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendered tasks/index.html.erb within layouts/application (7.5ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Task::ActiveRecord_AssociationRelation:0x000000000eab21e8>
+Did you mean?  to_ary
+               to_set):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@tasks) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :task, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__473253419_38940'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 19:54:07 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:00:50 +0900
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendered tasks/index.html.erb within layouts/application (23.2ms)
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 8.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `to_key' for #<Task::ActiveRecord_AssociationRelation:0x0000000007d0a208>
+Did you mean?  to_ary
+               to_set):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@tasks) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :task, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__442830700_20440'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:00:52 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:01:10 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (2.3ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@task) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :task, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__442830700_21220'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:01:12 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:04:06 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (25.9ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 8.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    67:     </tr>
+    68:   </thead>
+    69:   <tbody>
+    70:     <% @tasks.each do |t| %>
+    71:     <tr>
+    72:       <td><%= t.state %></td>
+    73:       <td><%= t.limit_date %></td>
+  
+app/views/tasks/index.html.erb:70:in `_app_views_tasks_index_html_erb__237325893_20440'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:04:08 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:05:34 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `tasks' for nil:NilClass):
+    67:     </tr>
+    68:   </thead>
+    69:   <tbody>
+    70:     <% @auth.tasks.each do |t| %>
+    71:     <tr>
+    72:       <td><%= t.state %></td>
+    73:       <td><%= t.limit_date %></td>
+  
+app/views/tasks/index.html.erb:70:in `_app_views_tasks_index_html_erb__237325893_21180'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:05:36 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:10:04 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    31:       <label for="description">説明</label>
+    32:       <input name="description" type="text">
+    33:     </div>
+    34:   <%= form_for(@task) do |f| %>
+    35:     <div>
+    36:       <%= f.label :task %>
+    37:       <%= f.text_field :task, size: 50 %>
+  
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__237325893_25820'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:10:07 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:12:31 +0900
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Completed 400 Bad Request in 27ms (ActiveRecord: 6.1ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task):
+  
+app/controllers/tasks_controller.rb:46:in `task_params'
+app/controllers/tasks_controller.rb:4:in `index'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:12:33 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:19:36 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Completed 400 Bad Request in 7ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: task):
+  
+app/controllers/tasks_controller.rb:46:in `task_params'
+app/controllers/tasks_controller.rb:4:in `index'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:19:38 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:25:14 +0900
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:70
+  Rendered tasks/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 322ms (Views: 278.9ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:25:15 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:25:16 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:27:38 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:70
+  Rendered tasks/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 75ms (Views: 47.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:27:38 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:27:40 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:38:52 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (54.0ms)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `free_comment' for #<Task:0x000000000e2ca2a0>):
+    43:       </div>
+    44: 
+    45:       <div class="input-field col s6">
+    46:         <%= f.text_field :free_comment %>
+    47:         <%= f.label :free_comment %>
+    48:       </div>
+    49: 
+  
+app/views/tasks/index.html.erb:46:in `block in _app_views_tasks_index_html_erb__998621901_20960'
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__998621901_20960'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:38:55 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:39:12 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 78ms (Views: 44.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:39:12 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:39:14 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:39:42 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 80ms (Views: 45.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:39:42 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:39:44 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:40:11 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (3.5ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `map' for nil:NilClass):
+    39: 
+    40:       <div class="input-field col s6">
+    41:         <%= f.label :state %>
+    42:         <%= f.select(:state, @state) %>
+    43:       </div>
+    44: 
+    45:       <div class="input-field col s6">
+  
+app/views/tasks/index.html.erb:42:in `block in _app_views_tasks_index_html_erb__998621901_21640'
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__998621901_21640'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:40:13 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:40:26 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 73ms (Views: 47.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:40:26 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:40:28 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:41:34 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendered tasks/index.html.erb within layouts/application (138.4ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `date' for #<ActionView::Helpers::FormBuilder:0x000000000e0f0600>):
+    49: 
+    50:       <div class="input-field col s6">
+    51:        <%= f.label :limit_date %>
+    52:        <%= f.date :limit_date, class: "datepicker", :required => true %>
+    53:      </div>
+    54:      <%= f.submit "Create New task", class: "btn" %>
+    55:   <% end %>
+  
+app/views/tasks/index.html.erb:52:in `block in _app_views_tasks_index_html_erb__998621901_22240'
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__998621901_22240'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:41:36 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:41:40 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mCACHE Task Load (0.0ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendered tasks/index.html.erb within layouts/application (139.7ms)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `datepicker' for #<ActionView::Helpers::FormBuilder:0x000000000ae3f300>
+Did you mean?  date_field):
+    49: 
+    50:       <div class="input-field col s6">
+    51:        <%= f.label :limit_date %>
+    52:        <%= f.datepicker :limit_date, class: "datepicker", :required => true %>
+    53:      </div>
+    54:      <%= f.submit "Create New task", class: "btn" %>
+    55:   <% end %>
+  
+app/views/tasks/index.html.erb:52:in `block in _app_views_tasks_index_html_erb__998621901_22880'
+app/views/tasks/index.html.erb:34:in `_app_views_tasks_index_html_erb__998621901_22880'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:41:42 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:42:09 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 73ms (Views: 43.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:42:09 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:42:11 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:43:04 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (48.8ms)
+Completed 200 OK in 115ms (Views: 88.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:43:04 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:43:05 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:44:29 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (C:/Git/ToDo/app/views/tasks/index.html.erb:61: unknown regexp options - btt
+      </button>
+       ^~~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:61: /.../n has a non escaped non ASCII character in non ASCII-8BIT script: /div>
+     '.freeze;@output_buffer.append=( f.submit "Create New task", class: "btn" );@output_buffer.safe_append='
+'.freeze;   end 
+@output_buffer.safe_append='    <p>
+      <button
+      class="insert"
+      type="submit">
+        \u4F5C\u6210
+      </
+C:/Git/ToDo/app/views/tasks/index.html.erb:62: syntax error, unexpected '<'
+    </p>
+    ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:63: unknown regexp options - fr
+  </form>
+   ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:64: syntax error, unexpected '<'
+</dialog>
+^
+C:/Git/ToDo/app/views/tasks/index.html.erb:66: unknown regexp option - a
+...w" id="show">タスク作成</a>
+...                             ^~
+C:/Git/ToDo/app/views/tasks/index.html.erb:67: syntax error, unexpected '<'
+</section>
+^
+C:/Git/ToDo/app/views/tasks/index.html.erb:68: unknown regexp option - p
+<p></p>
+    ^~
+C:/Git/ToDo/app/views/tasks/index.html.erb:69: syntax error, unexpected '<'
+<table style="margin: auto;">
+^
+C:/Git/ToDo/app/views/tasks/index.html.erb:70: syntax error, unexpected '<'
+  <thead>
+  ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:73: unknown regexp options - th
+      <th>期日</th>
+                 ^~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:74: syntax error, unexpected '<'
+      <th style="width: 200px">タ...
+      ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:75: unknown regexp options - th
+      <th class="icon"></th>
+                        ^~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:76: syntax error, unexpected '<'
+      <th class="icon"></th>
+      ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:76: syntax error, unexpected '<'
+      <th class="icon"></th>
+                       ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:77: unknown regexp options - th
+      <th class="icon"></th>
+                        ^~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:78: syntax error, unexpected '<'
+    </tr>
+    ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:79: unknown regexp options - thad
+  </thead>
+   ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:80: syntax error, unexpected '<'
+  <tbody>
+  ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:83: syntax error, unexpected '<'
+      <td>'.freeze;@output_buffer.ap...
+      ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:84: unknown regexp options - td
+...output_buffer.safe_append='</td>
+...                            ^~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:85: syntax error, unexpected '<'
+      <td>'.freeze;@output_buffer.ap...
+      ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:88: unknown regexp options - tak
+...pend=  form_for(t, url: "/tasks/#{t.id}", html: { method: 'P...
+...                         ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:88: regexp encoding option 's' differs from source encoding 'UTF-8'
+C:/Git/ToDo/app/views/tasks/index.html.erb:88: end pattern with unmatched parenthesis: /td>
+      <td class="icon">
+'.freeze;         if t.state != '\u5B8C\u4E86' 
+@output_buffer.safe_append='        '.freeze;@output_buffer.append=  form_for(t, url: "/
+C:/Git/ToDo/app/views/tasks/index.html.erb:89: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+...e_append='          <input type="hidden" name="task" value="...
+...                           ^~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:89: syntax error, unexpected local variable or method, expecting ')'
+...      <input type="hidden" name="task" value="'.freeze;@outp...
+...                           ^~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:89: syntax error, unexpected local variable or method, expecting ')'
+...type="hidden" name="task" value="'.freeze;@output_buffer.app...
+...                          ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:90: syntax error, unexpected '<'
+          <input type="hidden" name="sta...
+          ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:90: syntax error, unexpected local variable or method, expecting ')'
+...      <input type="hidden" name="state" value="完了">
+...                           ^~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:90: syntax error, unexpected local variable or method, expecting ')'
+...ype="hidden" name="state" value="完了">
+...                          ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:91: syntax error, unexpected '<'
+          <input type="hidden" name="lim...
+          ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:91: syntax error, unexpected local variable or method, expecting ')'
+...      <input type="hidden" name="limit_date" value="'.freeze...
+...                           ^~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:91: syntax error, unexpected local variable or method, expecting ')'
+...hidden" name="limit_date" value="'.freeze;@output_buffer.app...
+...                          ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:92: syntax error, unexpected '<'
+          <button type="submit" class="c...
+          ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:92: syntax error, unexpected `class', expecting ')'
+...    <button type="submit" class="clear-decoration">
+...                          ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:93: syntax error, unexpected '<'
+            <i class="fa fa-check-circle-o...
+            ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:93: syntax error, unexpected '<'
+..."fa fa-check-circle-o fa-lg "></i>
+...                              ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:94: unknown regexp options - btt
+          </button>
+           ^~~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:100: unknown regexp options - tak
+        <a href="/tasks/'.freeze;@output_buffer.appe...
+                 ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:100: regexp encoding option 's' differs from source encoding 'UTF-8'
+C:/Git/ToDo/app/views/tasks/index.html.erb:100: syntax error, unexpected local variable or method, expecting ')'
+...fer.safe_append='" style="color: rgb(0, 0, 0);"><i class="fa...
+...                          ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:100: syntax error, unexpected local variable or method, expecting ')'
+...or: rgb(0, 0, 0);"><i class="fa fa-pencil-square-o fa-lg "><...
+...                             ^~
+C:/Git/ToDo/app/views/tasks/index.html.erb:100: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+...class="fa fa-pencil-square-o fa-lg "></i> </a>
+...                             ^~
+C:/Git/ToDo/app/views/tasks/index.html.erb:100: syntax error, unexpected string literal, expecting `do' or '{' or '('
+...="fa fa-pencil-square-o fa-lg "></i> </a>
+...                              ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:102: syntax error, unexpected local variable or method, expecting ')'
+      <td class="icon">
+                 ^~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:103: syntax error, unexpected constant, expecting ')'
+        <form method="POST" action="/tasks/'.freeze;@ou...
+                      ^~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:104: syntax error, unexpected local variable or method, expecting ')'
+          <input type="hidden" name="_method" value="DELET...
+                       ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:104: syntax error, unexpected local variable or method, expecting ')'
+...put type="hidden" name="_method" value="DELETE">
+...                        ^~~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:104: syntax error, unexpected constant, expecting ')'
+...n" name="_method" value="DELETE">
+...                         ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:105: syntax error, unexpected local variable or method, expecting ')'
+          <input type="hidden" name="authenticity_token" v...
+                       ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:105: syntax error, unexpected local variable or method, expecting ')'
+...idden" name="authenticity_token" value="'.freeze;@output_buf...
+...             ^~~~~~~~~~~~~~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:106: syntax error, unexpected local variable or method, expecting ')'
+          <button type="submit" class="clear-decoration"
+                        ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:106: syntax error, unexpected local variable or method, expecting ')'
+...tton type="submit" class="clear-decoration"
+...                          ^~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:106: syntax error, unexpected string literal, expecting `do' or '{' or '('
+...ubmit" class="clear-decoration"
+...                              ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:107: syntax error, unexpected `return', expecting ')'
+           onclick="return confirm(\'タスク「'.free...
+                    ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:107: syntax error, unexpected backslash, expecting ')'
+...      onclick="return confirm(\'タスク「'.freeze;@output...
+...                              ^
+C:/Git/ToDo/app/views/tasks/index.html.erb:113: syntax error, unexpected `end', expecting ')'
+'.freeze;     end 
+              ^~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:197: syntax error, unexpected `ensure', expecting ')'
+          ensure
+          ^~~~~~
+C:/Git/ToDo/app/views/tasks/index.html.erb:199: syntax error, unexpected `end', expecting ')'
+          end
+          ^~~
+):
+  
+app/views/tasks/index.html.erb:61: unknown regexp options - btt
+app/views/tasks/index.html.erb:61: /../n has a non escaped non ASCII character in non ASCII-8BIT script: /div>
+app/views/tasks/index.html.erb:62: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:63: unknown regexp options - fr
+app/views/tasks/index.html.erb:64: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:66: unknown regexp option - a
+app/views/tasks/index.html.erb:67: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:68: unknown regexp option - p
+app/views/tasks/index.html.erb:69: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:70: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:73: unknown regexp options - th
+app/views/tasks/index.html.erb:74: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:75: unknown regexp options - th
+app/views/tasks/index.html.erb:76: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:76: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:77: unknown regexp options - th
+app/views/tasks/index.html.erb:78: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:79: unknown regexp options - thad
+app/views/tasks/index.html.erb:80: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:83: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:84: unknown regexp options - td
+app/views/tasks/index.html.erb:85: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:88: unknown regexp options - tak
+app/views/tasks/index.html.erb:88: regexp encoding option 's' differs from source encoding 'UTF-8'
+app/views/tasks/index.html.erb:88: end pattern with unmatched parenthesis: /td>
+app/views/tasks/index.html.erb:89: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/tasks/index.html.erb:89: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:89: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:90: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:90: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:90: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:91: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:91: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:91: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:92: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:92: syntax error, unexpected `class', expecting ')'
+app/views/tasks/index.html.erb:93: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:93: syntax error, unexpected '<'
+app/views/tasks/index.html.erb:94: unknown regexp options - btt
+app/views/tasks/index.html.erb:100: unknown regexp options - tak
+app/views/tasks/index.html.erb:100: regexp encoding option 's' differs from source encoding 'UTF-8'
+app/views/tasks/index.html.erb:100: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:100: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:100: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
+app/views/tasks/index.html.erb:100: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/tasks/index.html.erb:102: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:103: syntax error, unexpected constant, expecting ')'
+app/views/tasks/index.html.erb:104: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:104: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:104: syntax error, unexpected constant, expecting ')'
+app/views/tasks/index.html.erb:105: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:105: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:106: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:106: syntax error, unexpected local variable or method, expecting ')'
+app/views/tasks/index.html.erb:106: syntax error, unexpected string literal, expecting `do' or '{' or '('
+app/views/tasks/index.html.erb:107: syntax error, unexpected `return', expecting ')'
+app/views/tasks/index.html.erb:107: syntax error, unexpected backslash, expecting ')'
+app/views/tasks/index.html.erb:113: syntax error, unexpected `end', expecting ')'
+app/views/tasks/index.html.erb:197: syntax error, unexpected `ensure', expecting ')'
+app/views/tasks/index.html.erb:199: syntax error, unexpected `end', expecting ')'
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:44:32 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:45:22 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 117ms (Views: 89.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:45:22 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:45:24 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:46:39 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 73ms (Views: 44.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:46:39 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:46:41 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:47:27 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:81
+  Rendered tasks/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 66ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:47:28 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:47:29 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:48:03 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:58
+  Rendered tasks/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 76ms (Views: 47.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:48:03 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:48:05 +0900
+Started POST "/tasks" for ::1 at 2021-01-23 20:48:27 +0900
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IBb1Q9eVa8ehVXvq97/RA3DgeQwFNFZY5Ud1d+AHjRyDG96nISj8aiDhwDzE6opAgl4zX/u+mXkepN73ymOSaw==", "task"=>{"task"=>"test", "state"=>"対応中", "description"=>"", "limit_date"=>"2021-01-23T20:48"}, "commit"=>"Create New task"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:10
+  [1m[36mTask Create (1.1ms)[0m  [1m[32mINSERT INTO "tasks" ("state", "task", "limit_date", "created_at", "updated_at", "description", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["state", "対応中"], ["task", "test"], ["limit_date", "2021-01-23"], ["created_at", "2021-01-23 11:48:27.197897"], ["updated_at", "2021-01-23 11:48:27.197897"], ["description", ""], ["user_id", 1]]
+  ↳ app/controllers/tasks_controller.rb:10
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:10
+Redirected to http://localhost:3000/tasks/13
+Completed 302 Found in 18ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/tasks/13" for ::1 at 2021-01-23 20:48:27 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:23
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 38ms (Views: 33.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:48:27 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:48:28 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:48:29 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:48:36 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:58
+  Rendered tasks/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 48ms (Views: 43.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:48:36 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:48:59 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:58
+  Rendered tasks/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 74ms (Views: 43.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:48:59 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:49:01 +0900
+Started GET "/tasks" for ::1 at 2021-01-23 20:49:37 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:60
+  Rendered tasks/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 73ms (Views: 46.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2021-01-23 20:49:37 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-23 20:49:38 +0900

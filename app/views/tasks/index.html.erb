@@ -9,36 +9,30 @@ color: white;">
   </button>
   <p style="margin-top: -15px;margin-left: 5px;">新規作成</p>
   </div>
-  <form method="POST" action="/tasks">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <div>
-      <label for="task">タスク</label>
-      <input id="task" name="task" type="text" required>
-    </div>
-    <div>
-      <label>ステータス</label>
-      <select name="state">
-        <% @status.each_with_index do |s,i| %>
-        <option value="<%= s %>"><%= s %></option>
-        <% end %>
-      </select>
-    </div>
-    <div>
-      <label>期日</label>
-      <input type="date" name="limit_date" required>
-    </div>
-    <div>
-      <label for="description">説明</label>
-      <input name="description" type="text">
-    </div>
-    <p>
-      <button
-      class="insert"
-      type="submit">
-        作成
-      </button>
-    </p>
-  </form>
+  <%= form_for(@task) do |f| %>
+      <div class="input-field col s6">
+        <%= f.label 'タスク' %>
+        <%= f.text_field :task, :required => true %>
+      </div>
+
+      <div class="input-field col s6">
+        <%= f.label 'ステータス' %>
+        <%= f.select(:state, @status) %>
+      </div>
+
+      <div class="input-field col s6">
+        <%= f.label '説明' %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div class="input-field col s6">
+       <%= f.label '期日' %>
+       <%= f.datetime_field :limit_date, class: "datepicker", :required => true %>
+     </div>
+     <p>
+      <%= f.submit "作成", class: "insert" %>
+     </p>
+  <% end %>
 </dialog>
 <section>
   <a class="show" id="show">タスク作成</a>
@@ -162,4 +156,12 @@ btn_show.addEventListener('click', function() {
 btn_close.addEventListener('click', function() {
   dialog.close();
 }, false);
+
+var elems = document.querySelectorAll('.datepicker')
+var min   = new Date()
+var instances = M.Datepicker.init(elems, {
+  autoClose      : true,
+  format         : 'yyyy/m/d',
+  minDate        : min,
+});
 </script>

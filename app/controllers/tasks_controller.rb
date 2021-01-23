@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   def index
+    @task = Task.new
     @tasks  = current_user.tasks.order(state: "DESC").order(limit_date: "ASC")
     @status = ['新規', '対応中', '完了']  
   end
