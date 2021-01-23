@@ -8,15 +8,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new task_params
     @task.save!
-    redirect_to @task, notice: 'タスクを作成しました。'
-    # task = Task.new
-    # task.task         = params[:task]
-    # task.state        = params[:state]
-    # task.limit_date   = params[:limit_date]
-    # task.description  = params[:description]
-    # task.user_id      = current_user.id
-    # task.save
-    # redirect_to '/tasks', notice: 'タスクを作成しました。'
+    redirect_to '/tasks', notice: 'タスクを作成しました。'
   end
   def show
     id      = params[:id]
@@ -24,12 +16,14 @@ class TasksController < ApplicationController
     @status = ['新規', '対応中', '完了']  
   end
   def update
-    task = Task.find(params[:id])  
-    task.task         = params[:task]
-    task.state        = params[:state]
-    task.limit_date   = params[:limit_date]
-    task.description  = params[:description]
-    task.save
+    @task = target_task params[:id]
+    @task.update(task_params)
+    # task = Task.find(params[:id])  
+    # task.task         = params[:task]
+    # task.state        = params[:state]
+    # task.limit_date   = params[:limit_date]
+    # task.description  = params[:description]
+    # task.save
 
     redirect_to '/tasks', notice: 'タスクを更新しました。'
   end
