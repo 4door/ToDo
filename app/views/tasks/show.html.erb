@@ -1,11 +1,12 @@
 <div class="container">
   <p
-  style="background-color: #feffd4;
+  style="background-color: #4b3b3b;
+  color: white;
   margin: 0 auto;
   font-size: 1.25rem">
   タスク詳細</p>
   <%= form_for(@task) do |f| %>
-    <div class="text-field">
+    <div>
       <%= f.label '作成日' %>
       <%= f.datetime_field :created_at, class: "text-field", disabled: "disabled", :required => true %>
 
@@ -15,28 +16,28 @@
 
     <div class="input-field col s6">
       <%= f.label 'タスク' %>
-      <div class="col-sm-10">
-        <%= f.text_field :task, :required => true %>
-      </div>
-    </div>
-
-    <div class="input-field col s6">
-      <%= f.label 'ステータス' %>
-      <div class="col-sm-10">
-        <%= f.select(:state, @status) %>
+      <div>
+        <%= f.text_field :task, class: "col", :required => true %>
       </div>
     </div>
 
     <div class="input-field col s6">
       <%= f.label '期日' %>
-      <div class="col-sm-10">
+      <div>
         <%= f.date_field :limit_date, class: "datepicker", :required => true %>
+      </div>
+    </div>
+
+    <div class="input-field col s6">
+      <%= f.label 'ステータス' %>
+      <div>
+        <%= f.select(:state, @status) %>
       </div>
     </div>
 
     <div class="input-field col s6", style="margin-top: 5px;">
       <%= f.label '説明' %>
-      <div class="col-sm-10">
+      <div>
         <%= f.text_area :description %>
       </div>
     </div>
@@ -52,6 +53,7 @@
 }
 p{
   text-align: center;
+  border-radius: 10px 10px 0 0;
 }
 .text-field{
   border: none;
@@ -62,30 +64,38 @@ p{
   font-size: 1em;
   padding: 12px 30px;
   color: #fff;
-  background: #a9abae;
-  border: 1px solid #a9abae;
+  background: #756969;
+  border: 1px solid #756969;
   border-radius: 5px;
   text-decoration: none;
 }
 .back:hover {
   background: #fff;
-  color: #a9abae;
+  color: #756969;
 }
 .update{
   font-size: 1em;
   padding: 10px 30px;
   color: #fff;
-  background: #e8a48b;
-  border: 1px solid #e8a48b;
+  background: #830707;
+  border: 1px solid #830707;
   border-radius: 5px;
 }
 .update:hover {
   background: #fff;
-  color: #e8a48b;
+  color: #830707;
 }
 form{
-  background-color: #eaeaea;
+  background-color: #efeded;
   padding:30px 50px;
+  border-radius: 0 0 10px 10px;
+}
+textarea{
+  width: 550px;
+  height: 50px;
+}
+.col{
+  width: 130px
 }
 
 /* label {
