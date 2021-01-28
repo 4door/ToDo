@@ -13,6 +13,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"></head>
   <body>
     <nav class="site-header">
+      <br/>
       <% if user_signed_in? %>
       <a href="/tasks" class="site-title"><%= current_user.username %>さんのTask List</a>
       <ul>
