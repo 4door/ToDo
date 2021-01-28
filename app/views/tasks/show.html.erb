@@ -1,44 +1,66 @@
-<p
-style="background-color: #feffd4;
-width: 300px;
-margin: 0 auto;">
-タスク詳細</p>
+<div class="container">
+  <p
+  style="background-color: #feffd4;
+  margin: 0 auto;
+  font-size: 1.25rem">
+  タスク詳細</p>
   <%= form_for(@task) do |f| %>
-      <div class="input-field col s6">
-        <%= f.label 'タスク' %>
+    <div class="text-field">
+      <%= f.label '作成日' %>
+      <%= f.datetime_field :created_at, class: "text-field", disabled: "disabled", :required => true %>
+
+      <%= f.label '更新日' %>
+      <%= f.datetime_field :updated_at, class: "text-field", disabled: "disabled", :required => true %>
+    </div><br/>
+
+    <div class="input-field col s6">
+      <%= f.label 'タスク' %>
+      <div class="col-sm-10">
         <%= f.text_field :task, :required => true %>
       </div>
+    </div>
 
-      <div class="input-field col s6">
-        <%= f.label 'ステータス' %>
+    <div class="input-field col s6">
+      <%= f.label 'ステータス' %>
+      <div class="col-sm-10">
         <%= f.select(:state, @status) %>
       </div>
+    </div>
 
-      <div class="input-field col s6">
-       <%= f.label '期日' %>
-       <%= f.datetime_field :limit_date, class: "datepicker", :required => true %>
-     </div>
-
-      <div class="input-field col s6">
-        <%= f.label '説明' %>
-        <%= f.text_field :description %>
+    <div class="input-field col s6">
+      <%= f.label '期日' %>
+      <div class="col-sm-10">
+        <%= f.date_field :limit_date, class: "datepicker", :required => true %>
       </div>
-     <p>
-      <a href="/tasks" class="back">TOPへ戻る</a>
-      <%= f.submit "更新", class: "update" %>
-     </p>
+    </div>
+
+    <div class="input-field col s6", style="margin-top: 5px;">
+      <%= f.label '説明' %>
+      <div class="col-sm-10">
+        <%= f.text_area :description %>
+      </div>
+    </div>
+    <br/>
+    <a href="/tasks" class="back">TOPへ戻る</a>
+    <%= f.submit "更新", class: "update" %>
   <% end %>
+</div>
 <style>
-div{
-  width: 300px;
+.container{
+  width: 650px;
   margin: 0 auto;
 }
 p{
   text-align: center;
 }
+.text-field{
+  border: none;
+  background-color: #eaeaea;
+}
 .back{
+  margin-left: 150px;
   font-size: 1em;
-  padding: 13px 30px;
+  padding: 12px 30px;
   color: #fff;
   background: #a9abae;
   border: 1px solid #a9abae;
@@ -61,6 +83,11 @@ p{
   background: #fff;
   color: #e8a48b;
 }
+form{
+  background-color: #eaeaea;
+  padding:30px 50px;
+}
+
 /* label {
     margin-right: 10px;
     width:100px;

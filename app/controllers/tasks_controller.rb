@@ -13,8 +13,6 @@ class TasksController < ApplicationController
   def show
     id      = params[:id]
     @task   = Task.find(id)
-    @create_date = params[:create_at]
-    @updated_date = params[:updated_at]
     @status = ['新規', '対応中', '完了']  
   end
   def update
