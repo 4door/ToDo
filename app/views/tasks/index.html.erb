@@ -1,6 +1,8 @@
-<dialog style="border:none;">
+<dialog style="border:none;
+  border-radius: 0 0 10px 10px;">
 <div style="margin: -20px -16px 0;
 background-color: #4b3b3b;
+border-radius: 10px 10px 0 0;
 color: white;">
   <br/>
   <button id="close"
@@ -8,7 +10,7 @@ color: white;">
   style="display: block;margin: 4px 0 0 auto;">
     <i class="fa fa-close fa-lg " style="color: white;"></i>
   </button>
-  <p style="margin-top: -15px;margin-left: 5px;">新規作成</p>
+  <p style="margin-top: -15px;margin-left: 10px;">新規作成</p>
   </div>
   <%= form_for(@task) do |f| %>
       <div class="input-field col s6">
@@ -68,7 +70,7 @@ color: white;">
         <% if t.state != '完了' %>    
         <%= form_for(t, url: "/tasks/#{t.id}", html: { method: 'PUT' }) do |f| %>
         <input type="hidden" name="task[state]" value="完了">
-        <button type="submit"  class="clear-decoration">
+        <button type="submit"  class="clear-decoration"  title="完了！">
             <i class="fa fa-check-circle-o fa-lg "></i>
         </button>
         <% end %>
@@ -76,13 +78,13 @@ color: white;">
       </td>
       <td class="icon">
         <!-- 次のタスク詳細取得画面へのリンク -->
-        <a href="/tasks/<%= t.id %>" style="color: rgb(0, 0, 0);"><i class="fa fa-pencil-square-o fa-lg "></i> </a>
+        <a href="/tasks/<%= t.id %>" title="編集する" style="color: rgb(0, 0, 0);"><i class="fa fa-pencil-square-o fa-lg "></i> </a>
       </td>
       <td class="icon">
         <form method="POST" action="/tasks/<%= t.id %>">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-          <button type="submit" class="clear-decoration"
+          <button type="submit" class="clear-decoration" title="削除する"
            onclick="return confirm('タスク「<%= t.task %>」を削除します。よろしいですか？')">
             <i class="fa fa-trash-o fa-lg "></i>
           </button>
