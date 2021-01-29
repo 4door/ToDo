@@ -12841,3 +12841,225 @@ Processing by TasksController#index as HTML
 Completed 200 OK in 45ms (Views: 39.7ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/tasks" for ::1 at 2021-01-28 20:11:48 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 83ms (Views: 55.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-28 20:11:50 +0900
+Started GET "/tasks/10" for ::1 at 2021-01-29 13:46:10 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mTask Load (1.4ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:15
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 189ms (Views: 151.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/tasks/10" for ::1 at 2021-01-29 13:46:11 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:15
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 42ms (Views: 37.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/tasks/10" for ::1 at 2021-01-29 13:46:15 +0900
+Processing by TasksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vVZMD5QVNZkoMEgUX6alp9nYU3mk4xuUdxqbKq197PS534JeWqdCBGco9d5B2dS0KmnwKOukZ2wa+LcQIWgo7g==", "task"=>{"task"=>"睡眠", "limit_date"=>"2021-01-20", "state"=>"新規", "description"=>""}, "commit"=>"更新", "id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:37
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tasks_controller.rb:20
+  [1m[36mTask Update (4.5ms)[0m  [1m[33mUPDATE "tasks" SET "description" = $1, "updated_at" = $2 WHERE "tasks"."id" = $3[0m  [["description", ""], ["updated_at", "2021-01-29 04:46:15.285651"], ["id", 10]]
+  ↳ app/controllers/tasks_controller.rb:20
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tasks_controller.rb:20
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 24ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/tasks" for ::1 at 2021-01-29 13:46:15 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 68ms (Views: 41.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 13:46:17 +0900
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 13:46:17 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 15:41:31 +0900
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (2.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (237.9ms)
+Completed 200 OK in 1709ms (Views: 1508.1ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 15:41:35 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 15:41:55 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 93ms (Views: 60.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 15:41:56 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 15:42:05 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 80ms (Views: 48.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 15:42:07 +0900
+Started GET "/tasks/2" for ::1 at 2021-01-29 16:36:03 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:15
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (45.4ms)
+Completed 200 OK in 102ms (Views: 80.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/tasks" for ::1 at 2021-01-29 16:36:12 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 57ms (Views: 44.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tasks/2" for ::1 at 2021-01-29 16:36:18 +0900
+Processing by TasksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:15
+  Rendering tasks/show.html.erb within layouts/application
+  Rendered tasks/show.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 55ms (Views: 41.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks" for ::1 at 2021-01-29 16:36:40 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 46ms (Views: 40.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tasks" for ::1 at 2021-01-29 16:44:23 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 86ms (Views: 51.9ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 16:44:25 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 16:44:49 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 57ms (Views: 46.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 16:44:51 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 16:44:59 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 78ms (Views: 46.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 16:45:00 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 16:45:43 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 78ms (Views: 49.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 16:45:45 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 16:46:18 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 76ms (Views: 43.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 16:46:20 +0900
+Started GET "/tasks" for ::1 at 2021-01-29 16:47:05 +0900
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ C:/Ruby27-x64/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 ORDER BY "tasks"."state" DESC, "tasks"."limit_date" ASC[0m  [["user_id", 1]]
+  ↳ app/views/tasks/index.html.erb:64
+  Rendered tasks/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 56ms (Views: 50.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/serviceworker.js" for ::1 at 2021-01-29 16:47:07 +0900

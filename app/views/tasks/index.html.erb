@@ -65,7 +65,7 @@ color: white;">
     <tr>
       <td><%= t.state %></td>
       <td><%= t.limit_date %></td>
-      <td><%= t.task %></td>
+      <td><a href="/tasks/<%= t.id %>"><%= t.task %></a></td>
       <td class="icon">
         <% if t.state != '完了' %>    
         <%= form_for(t, url: "/tasks/#{t.id}", html: { method: 'PUT' }) do |f| %>
@@ -157,6 +157,12 @@ a.show:hover:before {
 textarea{
   width: 550px;
   height: 50px;
+}
+td a {
+  display: block;
+  padding: 0.6em 1em;
+  text-decoration: none;
+  color: black;
 }
 </style>
 <script>
